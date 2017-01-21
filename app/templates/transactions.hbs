@@ -1,24 +1,15 @@
-{{outlet}}
-<table>
-  <tr>
-    <td>col1</td>
-    <td>col2</td>
-    <td>col3</td>
-    <td>col4</td>
-    <td>col5</td>
-  </tr>
-  <tr>
-    <td>col1</td>
-    <td>col2</td>
-    <td>col3</td>
-    <td>col4</td>
-    <td>col5</td>
-  </tr>
-  <tr>
-    <td>col1</td>
-    <td>col2</td>
-    <td>col3</td>
-    <td>col4</td>
-    <td>col5</td>
-  </tr>
-</table>
+{{partial "components/aside-left"}}
+
+<main>
+  <header></header>
+  <section class="view">
+    {{outlet}}
+    <table>
+      {{#each model as |transaction|}}
+        {{component transaction-row transaction=transaction}}
+      {{/each}}
+    </table>
+  </section>
+</main>
+
+{{partial "components/aside-right"}}
